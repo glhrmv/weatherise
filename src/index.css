@@ -10,16 +10,29 @@ body {
 }
 
 a {
-  color: blue;
+  color: #3273dc;
+}
+
+.suggestion-city {
+  color: #3273dc;
+}
+
+.suggestion-city:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.input:active, .input:focus {
+  border-color: #3273dc;
 }
 
 #nprogress .spinner-icon {
-  border-top-color: blue;
-  border-left-color: blue;
+  border-top-color: #3273dc;
+  border-left-color: #3273dc;
 }
 
 #nprogress .bar {
-  background: blue;
+  background: #3273dc;
 }
 
 .hero {
@@ -28,21 +41,21 @@ a {
 
 .nav-item a.is-tab, a.nav-item.is-tab {
   color: rgba(255, 255, 255, 0.9);
-  background-color: blue;
+  background-color: #3273dc;
 }
 
 .nav-item a.is-tab:hover, a.nav-item.is-tab:hover {
   border-bottom: 1px solid rgba(255, 255, 255, 0.8);
   color: rgba(255, 255, 255, 0.9);
-  background-color: blue;
+  background-color: #3273dc;
 }
 
 .nav-item a.is-tab.is-active, a.nav-item.is-tab.is-active {
   border-bottom: 3px solid rgba(255, 255, 255, 1);
   color: rgba(255, 255, 255, 1);
-  background-color: blue;
+  background-color: #3273dc;
 }
 
 .nav .nav-toggle:hover {
-  background-color: blue;
+  background-color: #3273dc;
 }

@@ -9,7 +9,7 @@ import NProgress from 'nprogress';
 
 import LeftMenu from './LeftMenu';
 import Home from './Home';
-import Results from './Results';
+import Forecast from './Forecast';
 
 export default class App extends React.Component {
   componentWillMount() {
@@ -32,7 +32,7 @@ export default class App extends React.Component {
               <div className="column is-8">
                 <Switch>
                   <Route exact path="/" component={Home} />
-                  <Route path="/" component={Results} />
+                  <Route path="/forecast" component={Forecast} />
                   <Route component={Home} />
                 </Switch>
               </div>
