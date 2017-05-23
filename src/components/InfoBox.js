@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 const InfoBox = () => (
   <div className="box has-text-centered">
     <p>
@@ -9,7 +11,7 @@ const InfoBox = () => (
     </p>
     <p>
       <span>
-        made by <strong><a href="https://github.com/dogui" rel="noopener">dogui</a></strong>
+        made by <strong><Link to="https://github.com/dogui" target="_blank">dogui</Link></strong>
       </span>
     </p>
   </div>
