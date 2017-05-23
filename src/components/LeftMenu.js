@@ -1,7 +1,7 @@
 import React from 'react';
 
-import InfoBox from './InfoBox';
 import SearchBox from './SearchBox';
+import InfoBox from './InfoBox';
 
 const LeftMenu = () => (
   <div>
