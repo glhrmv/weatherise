@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
-
 const Home = () => (
   <div className="card">
     <div className="card-header">
@@ -9,9 +7,10 @@ const Home = () => (
           Home
         </p>
     </div>
-    <div className="card-content">
-      <p>asd</p>
-      <Link to="/forecast">let's go forecast</Link>
+    <div className="card-content content">
+      <blockquote>
+        make (a house or other building) resistant to cold weather, typically by adding insulation.
+      </blockquote>
     </div>
   </div>
 );

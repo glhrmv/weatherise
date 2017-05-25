@@ -14,6 +14,11 @@ const InfoBox = () => (
         made by <strong><Link to="https://github.com/dogui" target="_blank">dogui</Link></strong>
       </span>
     </p>
+    <p>
+      <span className="icon">
+        <i className="fa fa-github"></i>
+      </span>
+    </p>
   </div>
 );
 
