@@ -1,8 +1,9 @@
 import React from 'react';
 
+import { withRouter } from 'react-router-dom';
 import { init } from 'ityped';
 
-export default class SearchBox extends React.Component {
+class SearchBox extends React.Component {
   constructor(props) {
     super(props);
 
@@ -38,14 +39,23 @@ export default class SearchBox extends React.Component {
   }
 
   handleChange(e) {
+    // The cityName property of the state can be altered
+    // by the dynamic span element that changes its innerHTML
+    // to a suggestion of a city to place in the input.
+    // It can also be changed by the user typing something
+    // into the text input in the form
+
+    // If the event target has a value property, this means that the
+    // input came from the user, and not from one of the suggestions.
     e.target.value
-    ? this.setState({ cityName: e.target.value.trim() })
+    ? this.setState({ cityName: e.target.value })
     : this.setState({ cityName: e.target.innerHTML });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log('submitted');
+
+    this.props.history.push('/forecast?q=' + this.state.cityName);
   }
 
   render() {
@@ -87,3 +97,5 @@ export default class SearchBox extends React.Component {
     );
   }
 }
+
+export default withRouter(SearchBox);
