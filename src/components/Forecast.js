@@ -1,9 +1,11 @@
 import React from 'react';
 
-import { Link, Redirect } from 'react-router-dom';
 import NProgress from 'nprogress';
 import qs from 'qs';
 import axios from 'axios';
+import { Link, Redirect } from 'react-router-dom';
+
+import WeatherCard from './WeatherCard';
 
 const baseUrl = 'http://api.openweathermap.org/data/2.5';
 const apiKey = 'df4e03736c39bd4ff908e176104afde8';
@@ -15,7 +17,8 @@ export default class Forecast extends React.Component {
     this.state = {
       search: null,
       cityName: null,
-      forecast: {},
+      cityCountry: null,
+      forecast: [],
       loading: true
     };
 
@@ -32,27 +35,24 @@ export default class Forecast extends React.Component {
   }
 
   fetchForecast(cityName) {
-    axios.all([
-      axios.get(baseUrl + '/weather', { params: {
+      axios.get(baseUrl + '/forecast/daily', { params: {
         q: cityName,
-        type: 'accurate',
-        APPID: apiKey
-      }}),
-      axios.get(baseUrl + '/forecast', { params: {
-        q: cityName,
-        type: 'accurate',
+        type: 'like',
+        units: 'metric',
         cnt: 5,
         APPID: apiKey
-      }}),
-    ]).then((res) => {
-      NProgress.done();
+      }}).then((res) => {
+        NProgress.done();
 
-      this.setState({
-        cityName: res[0].data.name,
-        forecast: res,
-        loading: false
-      }, () => console.log('update set state'));
-    });
+        console.log(res.data.list);
+
+        this.setState({
+          cityName: res.data.city.name,
+          cityCountry: res.data.city.country,
+          forecast: res.data.list,
+          loading: false
+        });
+      });
   }
 
   componentWillMount(nextProps) {
@@ -89,34 +89,34 @@ export default class Forecast extends React.Component {
     }
 
     return (
-      <div className="card">
-        <div className="card-header">
+      <div>
+        <div className="card">
+          <div className="card-header">
             <p className="card-header-title">
-                {
-                  this.state.cityName ? (
-                    <span>
-                      Forecast for {this.state.cityName}
-                      <Link to="/"> (back home)</Link>
-                    </span>
-                  ) : (
-                    <span>Looking up {this.state.search}</span>
-                  )
-                }
+              {
+                this.state.cityName ? (
+                  <span>
+                    Forecast for {this.state.cityName}, {this.state.cityCountry}
+                    <Link to="/"> (back home)</Link>
+                  </span>
+                ) : (
+                  <span>Looking up {this.state.search}</span>
+                )
+              }
             </p>
-        </div>
-        <div className="card-content">
-          {this.state.loading ? (
-            <p>loading...</p>
-          ) : (
-            <div>
-              done!
-
-              <pre>
-                {JSON.stringify(this.state.forecast, null, 2)}
-              </pre>
+          </div>
+          {this.state.loading &&
+            <div className="card-content">
+                <p>loading...</p>
             </div>
-          )}
+          }
         </div>
+        {
+          !this.state.loading &&
+            this.state.forecast.map((f) =>
+              <WeatherCard key={f.dt} forecast={f} />
+            )
+        }
       </div>
     );
   }
