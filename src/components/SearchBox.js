@@ -29,10 +29,10 @@ class SearchBox extends React.Component {
         'San Francisco',
         'Dublin'
       ],
-      typeSpeed: 50,
+      typeSpeed: 60,
       backSpeed: 60,
       startDelay: 200,
-      backDelay: 1000,
+      backDelay: 1500,
       showCursor: false,
       loop: true
     });
@@ -55,7 +55,10 @@ class SearchBox extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    this.props.history.push('/forecast?q=' + this.state.cityName);
+    if (this.state.cityName.trim() !== '') {
+      this.props.history.push('/forecast?q=' + this.state.cityName.trim());
+      this.setState({ cityName: '' });
+    }
   }
 
   render() {

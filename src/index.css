@@ -31,7 +31,7 @@ a {
 
 .suggestion-city:hover {
   cursor: pointer;
-  text-decoration: underline;
+  border-bottom: 2px solid #3273dc;
 }
 
 .input:active, .input:focus {
@@ -47,27 +47,7 @@ a {
   background: #3273dc;
 }
 
-.hero {
-  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
-}
-
-.nav-item a.is-tab, a.nav-item.is-tab {
-  color: rgba(255, 255, 255, 0.9);
-  background-color: #3273dc;
-}
-
-.nav-item a.is-tab:hover, a.nav-item.is-tab:hover {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
-  color: rgba(255, 255, 255, 0.9);
-  background-color: #3273dc;
-}
-
-.nav-item a.is-tab.is-active, a.nav-item.is-tab.is-active {
-  border-bottom: 3px solid rgba(255, 255, 255, 1);
-  color: rgba(255, 255, 255, 1);
-  background-color: #3273dc;
-}
-
-.nav .nav-toggle:hover {
-  background-color: #3273dc;
+.icon.social-icon {
+  padding-left: 15px;
+  padding-right: 15px;
 }

@@ -4,20 +4,39 @@ import { Link } from 'react-router-dom';
 
 const InfoBox = () => (
   <div className="box has-text-centered">
-    <p>
+    <p className="title is-4">
       <strong>
         Weatherise
       </strong>
     </p>
-    <p>
+    <p className="subtitle is-6">
       <span>
-        made by <strong><Link to="https://github.com/dogui" target="_blank">dogui</Link></strong>
+        made with
+        <span className="icon social-icon">
+          <i className="fa fa-heart"></i>
+        </span>
+        by <strong>dogui</strong>
       </span>
     </p>
     <p>
-      <span className="icon">
-        <i className="fa fa-github"></i>
-      </span>
+      Find me on
+    </p>
+    <p>
+      <Link to="https://github.com/dogui/" target="_blank">
+        <span className="icon social-icon">
+          <i className="fa fa-github"></i>
+        </span>
+      </Link>
+      <Link to="https://medium.com/@dogui" target="_blank">
+        <span className="icon social-icon">
+          <i className="fa fa-medium"></i>
+        </span>
+      </Link>
+      <Link to="https://soundcloud.com/ogui" target="_blank">
+        <span className="icon social-icon">
+          <i className="fa fa-soundcloud"></i>
+        </span>
+      </Link>
     </p>
   </div>
 );
