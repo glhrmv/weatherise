@@ -48,6 +48,33 @@ a {
 }
 
 .icon.social-icon {
+  padding-top: 10px;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+em.is-small {
+  font-size: 0.75rem;
+}
+
+.message {
+  margin-top: 1rem;
+}
+
+.fade-appear {
+  opacity: 0.01;
+}
+
+.fade-appear.fade-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+
+.fade-leave {
+  opacity: 1;
+}
+
+.fade-leave.fade-leave-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in;
 }

@@ -4,7 +4,7 @@ const Home = () => (
   <div className="card">
     <div className="card-header">
         <p className="card-header-title">
-          Home
+          Weatherise
         </p>
     </div>
     <div className="card-content content">

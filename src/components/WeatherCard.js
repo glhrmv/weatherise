@@ -1,5 +1,6 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
 import moment from 'moment';
 
 const formatSettings = {
@@ -9,43 +10,45 @@ const formatSettings = {
   sameElse: 'dddd, MMMM Do YYYY'
 };
 
-export default class WeatherCard extends React.Component {
-  render() {
-    return (
-      <div key={this.props.forecast.dt} className="card">
-        <div className="card-content">
+const WeatherCard = ({forecast }) => (
+  <div key={forecast.dt} className="card">
+    <div className="card-content">
+      <div className="columns">
+        <div className="column">
+          <p className="title">
+            {moment.unix(forecast.dt).calendar(null, formatSettings)}
+          </p>
+          <p className="subtitle is-5">
+            {forecast.weather[0].description}
+          </p>
+        </div>
+        <div className="column">
           <div className="columns">
             <div className="column">
-              <p className="title">
-                {moment.unix(this.props.forecast.dt).calendar(null, formatSettings)}
+              <p>
+                <strong>Max</strong>: {Math.round(forecast.temp.max)} ºC
               </p>
-              <p className="subtitle is-5">
-                {this.props.forecast.weather[0].description}
+              <p>
+                <strong>Min</strong>: {Math.round(forecast.temp.min)} ºC
               </p>
             </div>
             <div className="column">
-              <div className="columns">
-                <div className="column">
-                  <p>
-                    <strong>Max</strong>: {Math.round(this.props.forecast.temp.max)} ºC
-                  </p>
-                  <p>
-                    <strong>Min</strong>: {Math.round(this.props.forecast.temp.min)} ºC
-                  </p>
-                </div>
-                <div className="column">
-                  <p>
-                    <strong>Humidity</strong>: {this.props.forecast.humidity }%
-                  </p>
-                  <p>
-                    <strong>Clouds</strong>: {this.props.forecast.clouds }%
-                  </p>
-                </div>
-              </div>
+              <p>
+                <strong>Humidity</strong>: {forecast.humidity }%
+              </p>
+              <p>
+                <strong>Clouds</strong>: {forecast.clouds }%
+              </p>
             </div>
           </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  </div>
+)
+
+WeatherCard.propTypes = {
+  forecast: PropTypes.object.isRequired
 }
+
+export default WeatherCard;
