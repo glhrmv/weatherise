@@ -6,7 +6,9 @@ const InfoBox = () => (
   <div className="box has-text-centered">
     <p className="title is-4">
       <strong>
-        Weatherise
+        <Link to="/">
+          Weatherise
+        </Link>
       </strong>
     </p>
     <p className="subtitle is-6">
@@ -18,8 +20,8 @@ const InfoBox = () => (
         by <strong>dogui</strong>
       </span>
     </p>
-    <p>
-      Find me on
+    <p className="subtitle is-6 is-marginless">
+      find me on
     </p>
     <p>
       <Link to="https://github.com/dogui/" target="_blank">
