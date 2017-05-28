@@ -23,6 +23,7 @@ const InfoBox = () => (
         by <strong>dogui</strong>
       </span>
     </p>
+
     <p className="subtitle is-6 is-marginless">
       find me on
     </p>

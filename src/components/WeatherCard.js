@@ -7,10 +7,11 @@ const formatSettings = {
   sameDay: '[Today], MMMM Do YYYY',
   nextDay: '[Tomorrow], MMMM Do YYYY',
   nextWeek: 'dddd, MMMM Do YYYY',
+  lastDay: '[Yesterday], MMMM Do',
   sameElse: 'dddd, MMMM Do YYYY'
 };
 
-const WeatherCard = ({forecast }) => (
+const WeatherCard = ({ forecast }) => (
   <div key={forecast.dt} className="card">
     <div className="card-content">
       <div className="columns">
@@ -19,6 +20,10 @@ const WeatherCard = ({forecast }) => (
             {moment.unix(forecast.dt).calendar(null, formatSettings)}
           </p>
           <p className="subtitle is-5">
+            <span className="icon weather-icon">
+              <i className={forecast.weather[0].icon}></i>
+            </span>
+            &nbsp;
             {forecast.weather[0].description}
           </p>
         </div>
@@ -34,10 +39,18 @@ const WeatherCard = ({forecast }) => (
             </div>
             <div className="column">
               <p>
-                <strong>Humidity</strong>: {forecast.humidity }%
+                <strong>Humidity</strong>: {forecast.humidity || 0}%
               </p>
               <p>
-                <strong>Clouds</strong>: {forecast.clouds }%
+                <strong>Clouds</strong>: {forecast.clouds || 0}%
+              </p>
+            </div>
+            <div className="column">
+              <p>
+                <strong>Rain</strong>: {forecast.rain || 0}%
+              </p>
+              <p>
+                <strong>Winds</strong>: {forecast.speed } m/s
               </p>
             </div>
           </div>

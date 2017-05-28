@@ -4,6 +4,8 @@ import NProgress from 'nprogress';
 import qs from 'qs';
 import axios from 'axios';
 
+import weatherIcons from '../icons.json';
+
 import { Link, Redirect } from 'react-router-dom';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
@@ -49,10 +51,25 @@ export default class Forecast extends React.Component {
       }}).then((res) => {
         NProgress.done();
 
+        // add weather icon to each day
+        let list = res.data.list.map((d) => {
+          let code = d.weather[0].id;
+          let icon = weatherIcons[code].icon;
+
+          if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)) {
+            icon = 'day-' + icon;
+          }
+
+          d.weather[0].icon = 'wi wi-' + icon;
+          return d;
+        });
+
+        console.dir(list);
+
         this.setState({
           cityName: res.data.city.name,
           cityCountry: res.data.city.country,
-          forecast: res.data.list,
+          forecast: list,
           loading: false
         });
       }).catch((err) => {
