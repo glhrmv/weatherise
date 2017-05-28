@@ -48,9 +48,9 @@ a {
 }
 
 .icon.social-icon {
-  padding-top: 10px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-top: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 em.is-small {
@@ -77,4 +77,8 @@ em.is-small {
 .fade-leave.fade-leave-active {
   opacity: 0;
   transition: opacity 300ms ease-in;
+}
+
+.weather-icon {
+  padding-top: 0.5rem;
 }
