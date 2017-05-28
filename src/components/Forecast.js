@@ -44,7 +44,7 @@ export default class Forecast extends React.Component {
         q: cityName,
         type: 'like',
         units: 'metric',
-        cnt: 5,
+        cnt: 7,
         APPID: apiKey
       }}).then((res) => {
         NProgress.done();
@@ -80,7 +80,8 @@ export default class Forecast extends React.Component {
       this.setState({
         cityName: null,
         forecast: {},
-        loading: true
+        loading: true,
+        moreInfo: false
       }, this.getQuery(nextProps));
     }
   }
@@ -96,9 +97,9 @@ export default class Forecast extends React.Component {
   handleMoreInfo(e) {
     this.setState({ moreInfo: !this.state.moreInfo });
 
-    e.target.innerText === ' got it'
-    ? e.target.innerText = ' not what you wanted?'
-    : e.target.innerText = ' got it';
+    e.target.innerText === 'got it'
+    ? e.target.innerText = 'not what you wanted?'
+    : e.target.innerText = 'got it';
   }
 
   render() {
@@ -115,8 +116,9 @@ export default class Forecast extends React.Component {
                 this.state.cityName ? (
                   <span>
                     Forecast for {this.state.cityName}, {this.state.cityCountry}
+                    &nbsp;
                     <a onClick={this.handleMoreInfo}>
-                      <em className="is-small"> not what you wanted?</em>
+                      <em className="is-small">not what you wanted?</em>
                     </a>
                   </span>
                 ) : (
@@ -161,23 +163,21 @@ export default class Forecast extends React.Component {
         {!this.state.loading &&
           this.state.forecast.map((f) =>
           <CSSTransitionGroup
+            key={f.dt}
             transitionName="fade"
             transitionAppear={true}
             transitionAppearTimeout={500}
             transitionEnter={false}
             transitionLeave={false}>
-            <WeatherCard key={f.dt} forecast={f} />
+            <WeatherCard forecast={f} />
           </CSSTransitionGroup>
           )
         }
 
         {this.state.error &&
-          <article className="message is-danger">
-            <div className="message-header">
-              <p><strong>Error</strong></p>
-            </div>
+          <article className="message is-dark">
             <div className="message-body">
-              Something went wrong with your search. Please try again later.
+              Something went wrong with the request. Please try again later.
               &nbsp;
               <a onClick={() => {window.location.reload()}}>Try again now?</a>
             </div>

@@ -11,6 +11,9 @@ const InfoBox = () => (
         </Link>
       </strong>
     </p>
+    <p className="subtitle is-6 is-marginless">
+      a side project
+    </p>
     <p className="subtitle is-6">
       <span>
         made with
