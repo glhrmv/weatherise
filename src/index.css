@@ -82,3 +82,7 @@ em.is-small {
 .weather-icon {
   padding-top: 0.5rem;
 }
+
+.weather-card strong {
+  font-size: 14px;
+}

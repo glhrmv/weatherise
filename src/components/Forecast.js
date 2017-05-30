@@ -10,6 +10,7 @@ import { Link, Redirect } from 'react-router-dom';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 import WeatherCard from './WeatherCard';
+import ErrorMessage from './ErrorMessage';
 
 const baseUrl = 'http://api.openweathermap.org/data/2.5';
 const apiKey = 'df4e03736c39bd4ff908e176104afde8';
@@ -192,13 +193,7 @@ export default class Forecast extends React.Component {
         }
 
         {this.state.error &&
-          <article className="message is-dark">
-            <div className="message-body">
-              Something went wrong with the request. Please try again later.
-              &nbsp;
-              <a onClick={() => {window.location.reload()}}>Try again now?</a>
-            </div>
-          </article>
+          <ErrorMessage />
         }
       </div>
     );

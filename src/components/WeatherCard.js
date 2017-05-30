@@ -12,7 +12,7 @@ const formatSettings = {
 };
 
 const WeatherCard = ({ forecast }) => (
-  <div key={forecast.dt} className="card">
+  <div key={forecast.dt} className="card weather-card">
     <div className="card-content">
       <div className="columns">
         <div className="column">
