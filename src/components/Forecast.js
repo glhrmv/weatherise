@@ -28,59 +28,6 @@ export default class Forecast extends React.Component {
       moreInfo: false,
       error: false
     };
-
-    this.fetchForecast = this.fetchForecast.bind(this);
-    this.getQuery = this.getQuery.bind(this);
-    this.handleMoreInfo = this.handleMoreInfo.bind(this);
-  }
-
-  getQuery(props) {
-    let search = qs.parse(props.location.search.substring(1));
-
-    if (search.q) {
-      this.setState({ search: search.q });
-    }
-  }
-
-  fetchForecast(cityName) {
-      axios.get(baseUrl + '/forecast/daily', { params: {
-        q: cityName,
-        type: 'like',
-        units: 'metric',
-        cnt: 7,
-        APPID: apiKey
-      }}).then((res) => {
-        NProgress.done();
-
-        // add weather icon to each day
-        let list = res.data.list.map((d) => {
-          let code = d.weather[0].id;
-          let icon = weatherIcons[code].icon;
-
-          if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)) {
-            icon = 'day-' + icon;
-          }
-
-          d.weather[0].icon = 'wi wi-' + icon;
-          return d;
-        });
-
-        console.dir(list);
-
-        this.setState({
-          cityName: res.data.city.name,
-          cityCountry: res.data.city.country,
-          forecast: list,
-          loading: false
-        });
-      }).catch((err) => {
-        NProgress.done();
-
-        this.setState({
-          error: true,
-          loading: false
-        });
-      });
   }
 
   componentWillMount(nextProps) {
@@ -112,7 +59,54 @@ export default class Forecast extends React.Component {
     }
   }
 
-  handleMoreInfo(e) {
+  getQuery = (props) => {
+    let search = qs.parse(props.location.search.substring(1));
+
+    if (search.q) {
+      this.setState({ search: search.q });
+    }
+  }
+
+  fetchForecast = (cityName) => {
+      axios.get(baseUrl + '/forecast/daily', { params: {
+        q: cityName,
+        type: 'like',
+        units: 'metric',
+        cnt: 7,
+        APPID: apiKey
+      }}).then((res) => {
+        NProgress.done();
+
+        // add weather icon to each day
+        let list = res.data.list.map((d) => {
+          let code = d.weather[0].id;
+          let icon = weatherIcons[code].icon;
+
+          if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)) {
+            icon = 'day-' + icon;
+          }
+
+          d.weather[0].icon = 'wi wi-' + icon;
+          return d;
+        });
+
+        this.setState({
+          cityName: res.data.city.name,
+          cityCountry: res.data.city.country,
+          forecast: list,
+          loading: false
+        });
+      }).catch((err) => {
+        NProgress.done();
+
+        this.setState({
+          error: true,
+          loading: false
+        });
+      });
+  }
+
+  handleMoreInfo = (e) => {
     this.setState({ moreInfo: !this.state.moreInfo });
 
     e.target.innerText === 'got it'
@@ -130,8 +124,7 @@ export default class Forecast extends React.Component {
         <div className="card">
           <div className="card-header">
             <p className="card-header-title">
-              {
-                this.state.cityName ? (
+              {this.state.cityName ? (
                   <span>
                     Forecast for {this.state.cityName}, {this.state.cityCountry}
                     &nbsp;
@@ -141,8 +134,7 @@ export default class Forecast extends React.Component {
                   </span>
                 ) : (
                   <span>Looking up {this.state.search}...</span>
-                )
-              }
+                )}
             </p>
           </div>
           {this.state.moreInfo &&
@@ -191,7 +183,6 @@ export default class Forecast extends React.Component {
           </CSSTransitionGroup>
           )
         }
-
         {this.state.error &&
           <ErrorMessage />
         }
