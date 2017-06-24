@@ -22,10 +22,6 @@ const Home = () => (
 
         <p>Find the current weather and a 7 day forecast for anywhere in the world!</p>
         <p>You can click on one of the suggestions to the left to get started.</p>
-
-        <div className="notification is-info">
-          Please use the HTTP version of Weatherise in order for the forecast to work!
-        </div>
       </div>
     </div>
   </CSSTransitionGroup>
