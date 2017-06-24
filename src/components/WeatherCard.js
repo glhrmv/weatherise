@@ -15,7 +15,7 @@ const WeatherCard = ({ forecast }) => (
   <div key={forecast.dt} className="card weather-card">
     <div className="card-content">
       <div className="columns">
-        <div className="column">
+        <div className="column is-5">
           <p className="title is-4">
             {moment.unix(forecast.dt).calendar(null, formatSettings)}
           </p>
@@ -27,7 +27,7 @@ const WeatherCard = ({ forecast }) => (
             {forecast.weather[0].description}
           </p>
         </div>
-        <div className="column">
+        <div className="column is-7">
           <div className="columns">
             <div className="column">
               <p>
