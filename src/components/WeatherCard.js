@@ -16,10 +16,10 @@ const WeatherCard = ({ forecast }) => (
     <div className="card-content">
       <div className="columns">
         <div className="column">
-          <p className="title">
+          <p className="title is-4">
             {moment.unix(forecast.dt).calendar(null, formatSettings)}
           </p>
-          <p className="subtitle is-5">
+          <p className="subtitle is-6">
             <span className="icon weather-icon">
               <i className={forecast.weather[0].icon}></i>
             </span>
