@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-import PropTypes from 'prop-types';
-import moment from 'moment';
+import PropTypes from 'prop-types'
+import moment from 'moment'
 
 const formatSettings = {
   sameDay: '[Today], MMMM Do YYYY',
@@ -9,7 +9,7 @@ const formatSettings = {
   nextWeek: 'dddd, MMMM Do YYYY',
   lastDay: '[Yesterday], MMMM Do',
   sameElse: 'dddd, MMMM Do YYYY'
-};
+}
 
 const WeatherCard = ({ forecast }) => (
   <div key={forecast.dt} className="card weather-card">
@@ -21,7 +21,7 @@ const WeatherCard = ({ forecast }) => (
           </p>
           <p className="subtitle is-6">
             <span className="icon weather-icon">
-              <i className={forecast.weather[0].icon}></i>
+              <i className={forecast.weather[0].icon} />
             </span>
             &nbsp;
             {forecast.weather[0].description}
@@ -50,7 +50,7 @@ const WeatherCard = ({ forecast }) => (
                 <strong>Rain</strong>: {forecast.rain || 0}%
               </p>
               <p>
-                <strong>Winds</strong>: {forecast.speed } m/s
+                <strong>Winds</strong>: {forecast.speed} m/s
               </p>
             </div>
           </div>
@@ -64,4 +64,4 @@ WeatherCard.propTypes = {
   forecast: PropTypes.object.isRequired
 }
 
-export default WeatherCard;
+export default WeatherCard

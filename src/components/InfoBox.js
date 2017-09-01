@@ -1,50 +1,30 @@
-import React from 'react';
+import React from 'react'
 
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 const InfoBox = () => (
   <div className="box has-text-centered">
     <p className="title is-4">
       <strong>
-        <Link to="/">
-          Weatherise
-        </Link>
+        <Link to="/">Weatherise</Link>
       </strong>
     </p>
-    <p className="subtitle is-6 is-marginless">
-      a side project
-    </p>
+    <p className="subtitle is-6 is-marginless">a side project</p>
     <p className="subtitle is-6">
       <span>
         made with
         <span className="icon social-icon">
-          <i className="fa fa-heart"></i>
+          <i className="fa fa-heart" />
         </span>
-        by <strong>dogui</strong>
+        by{' '}
+        <strong>
+          <Link to="http://dogui.me/" target="_blank">
+            dogui
+          </Link>
+        </strong>
       </span>
     </p>
-
-    <p className="subtitle is-6 is-marginless">
-      find me on
-    </p>
-    <p>
-      <Link to="https://github.com/dogui/" target="_blank">
-        <span className="icon social-icon">
-          <i className="fa fa-github"></i>
-        </span>
-      </Link>
-      <Link to="https://medium.com/@dogui" target="_blank">
-        <span className="icon social-icon">
-          <i className="fa fa-medium"></i>
-        </span>
-      </Link>
-      <Link to="https://soundcloud.com/ogui" target="_blank">
-        <span className="icon social-icon">
-          <i className="fa fa-soundcloud"></i>
-        </span>
-      </Link>
-    </p>
   </div>
-);
+)
 
-export default InfoBox;
+export default InfoBox

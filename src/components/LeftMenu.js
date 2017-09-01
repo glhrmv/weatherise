@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
 
-import SearchBox from './SearchBox';
-import InfoBox from './InfoBox';
+import SearchBox from './SearchBox'
+import InfoBox from './InfoBox'
 
 const LeftMenu = () => (
   <div>
@@ -12,11 +12,12 @@ const LeftMenu = () => (
       transitionAppear={true}
       transitionAppearTimeout={500}
       transitionEnter={false}
-      transitionLeave={false}>
+      transitionLeave={false}
+    >
       <SearchBox />
       <InfoBox />
     </CSSTransitionGroup>
   </div>
-);
+)
 
-export default LeftMenu;
+export default LeftMenu

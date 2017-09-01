@@ -1,18 +1,18 @@
-import React from 'react';
+import React from 'react'
 
-import { withRouter } from 'react-router-dom';
-import { init } from 'ityped';
+import { withRouter } from 'react-router-dom'
+import { init } from 'ityped'
 
 class SearchBox extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
-      cityName: '',
+      cityName: ''
     }
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   componentDidMount() {
@@ -35,7 +35,7 @@ class SearchBox extends React.Component {
       backDelay: 1500,
       showCursor: false,
       loop: true
-    });
+    })
   }
 
   handleChange(e) {
@@ -48,16 +48,16 @@ class SearchBox extends React.Component {
     // If the event target has a value property, this means that the
     // input came from the user, and not from one of the suggestions.
     e.target.value
-    ? this.setState({ cityName: e.target.value })
-    : this.setState({ cityName: e.target.innerHTML });
+      ? this.setState({ cityName: e.target.value })
+      : this.setState({ cityName: e.target.innerHTML })
   }
 
   handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault()
 
     if (this.state.cityName.trim() !== '') {
-      this.props.history.push('/forecast?q=' + this.state.cityName.trim());
-      this.setState({ cityName: '' });
+      this.props.history.push('/forecast?q=' + this.state.cityName.trim())
+      this.setState({ cityName: '' })
     }
   }
 
@@ -65,15 +65,15 @@ class SearchBox extends React.Component {
     return (
       <div className="box">
         <div className="content has-text-centered">
-          <p className="title is-3"
-            >what's the weather in
-          </p>
+          <p className="title is-3">what's the weather in</p>
           <p className="subtitle is-2">
             <span
               onClick={this.handleChange}
               className="suggestion-city"
-              ref={(s) => {this.cityName = s}}>
-            </span>?
+              ref={s => {
+                this.cityName = s
+              }}
+            />?
           </p>
         </div>
         <form onSubmit={this.handleSubmit}>
@@ -84,12 +84,13 @@ class SearchBox extends React.Component {
                 value={this.state.cityName}
                 className="input"
                 type="text"
-                placeholder="City" />
-              </p>
+                placeholder="City"
+              />
+            </p>
             <p className="control">
               <button type="submit" className="button is-info is-outlined">
                 <span className="icon">
-                  <i className="fa fa-globe"></i>
+                  <i className="fa fa-globe" />
                 </span>
                 <span>Search</span>
               </button>
@@ -97,8 +98,8 @@ class SearchBox extends React.Component {
           </div>
         </form>
       </div>
-    );
+    )
   }
 }
 
-export default withRouter(SearchBox);
+export default withRouter(SearchBox)
