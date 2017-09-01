@@ -1,23 +1,20 @@
-import React from 'react';
+import React from 'react'
 
-import {
-  BrowserRouter as Router,
-  Route, Switch
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import NProgress from 'nprogress';
+import NProgress from 'nprogress'
 
-import LeftMenu from './LeftMenu';
-import Home from './Home';
-import Forecast from './Forecast';
+import LeftMenu from './LeftMenu'
+import Home from './Home'
+import Forecast from './Forecast'
 
 export default class App extends React.Component {
   componentWillMount() {
-    NProgress.start();
+    NProgress.start()
   }
 
   componentDidMount() {
-    NProgress.done();
+    NProgress.done()
   }
 
   render() {
@@ -40,6 +37,6 @@ export default class App extends React.Component {
           </div>
         </section>
       </Router>
-    );
+    )
   }
 }
