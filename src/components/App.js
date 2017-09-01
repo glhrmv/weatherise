@@ -23,10 +23,10 @@ export default class App extends React.Component {
         <section className="section">
           <div className="container">
             <div className="columns">
-              <div className="column is-4">
+              <div className="column is-3 is-offset-1">
                 <LeftMenu />
               </div>
-              <div className="column is-8">
+              <div className="column is-7">
                 <Switch>
                   <Route exact path="/" component={Home} />
                   <Route path="/forecast" component={Forecast} />
