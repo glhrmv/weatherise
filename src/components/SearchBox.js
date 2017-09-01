@@ -65,7 +65,7 @@ class SearchBox extends React.Component {
     return (
       <div className="box">
         <div className="content has-text-centered">
-          <p className="title is-3">what's the weather in</p>
+          <p className="title is-4">what's the weather in</p>
           <p className="subtitle is-2">
             <span
               onClick={this.handleChange}

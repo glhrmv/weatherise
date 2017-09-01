@@ -16,7 +16,7 @@ const WeatherCard = ({ forecast }) => (
     <div className="card-content">
       <div className="columns">
         <div className="column is-5">
-          <p className="title is-4">
+          <p className="title is-5">
             {moment.unix(forecast.dt).calendar(null, formatSettings)}
           </p>
           <p className="subtitle is-6">
