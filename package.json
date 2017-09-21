@@ -1,6 +1,6 @@
 {
   "name": "weatherise",
-  "author": "dogui <gvm.gui@gmail.com>",
+  "author": "glhrmv <gvm.gui@gmail.com>",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -22,7 +22,7 @@
     "react-scripts": "1.0.5"
   },
   "scripts": {
-    "pretty": "prettier --single-quote --no-semi --write src/**/*.js",
+    "pretty": "prettier --single-quote --no-semi --write 'src/**/*.js'",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

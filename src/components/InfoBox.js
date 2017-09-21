@@ -18,8 +18,8 @@ const InfoBox = () => (
         </span>
         by{' '}
         <strong>
-          <Link to="http://dogui.me/" target="_blank">
-            dogui
+          <Link to="http://github.com/glhrmv" target="_blank">
+            glhrmv
           </Link>
         </strong>
       </span>
