@@ -1,3 +1,7 @@
+:root {
+  --main-blue-color: #3273dc;
+}
+
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -13,39 +17,38 @@ body {
 }
 
 a {
-  color: #3273dc;
+  color: var(--main-blue-color);
 }
 
 .section {
   background-color: transparent;
 }
 
+button.link-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  color: var(--main-blue-color);
+}
+
+button.link-button:hover, button.link-button:focus {
+  text-decoration: none;
+}
+
 .suggestion-city {
-  color: #3273dc;
+  color: var(--main-blue-color);
 }
 
 .suggestion-city:hover {
   cursor: pointer;
-  border-bottom: 2px solid #3273dc;
+  border-bottom: 2px solid var(--main-blue-color);
 }
 
 .input:active, .input:focus {
-  border-color: #3273dc;
-}
-
-#nprogress .spinner-icon {
-  border-top-color: #3273dc;
-  border-left-color: #3273dc;
-}
-
-#nprogress .bar {
-  background: #3273dc;
-}
-
-.icon.social-icon {
-  padding-top: 0.5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  border-color: var(--main-blue-color);
 }
 
 em.is-small {
@@ -55,6 +58,37 @@ em.is-small {
 .message {
   margin-top: 1rem;
 }
+
+.icon.social-icon {
+  padding-top: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.weather-icon {
+  padding-top: 0.5rem;
+}
+
+.weather-card strong {
+  font-size: 14px;
+}
+
+/**
+ * NProgress
+ */
+ 
+#nprogress .spinner-icon {
+  border-top-color: var(--main-blue-color);
+  border-left-color: var(--main-blue-color);
+}
+
+#nprogress .bar {
+  background: var(--main-blue-color);
+}
+
+/**
+ * Animations
+ */
 
 .fade-appear {
   opacity: 0.01;
@@ -72,12 +106,4 @@ em.is-small {
 .fade-leave.fade-leave-active {
   opacity: 0;
   transition: opacity 300ms ease-in;
-}
-
-.weather-icon {
-  padding-top: 0.5rem;
-}
-
-.weather-card strong {
-  font-size: 14px;
 }
