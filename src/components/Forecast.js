@@ -4,16 +4,16 @@ import NProgress from 'nprogress'
 import qs from 'qs'
 import axios from 'axios'
 
-import weatherIcons from '../icons.json'
-
 import { Link, Redirect } from 'react-router-dom'
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
+
+import weatherIcons from '../icons.json'
 
 import WeatherCard from './WeatherCard'
 import ErrorMessage from './ErrorMessage'
 
-const baseUrl = 'http://api.openweathermap.org/data/2.5'
-const apiKey = 'df4e03736c39bd4ff908e176104afde8'
+const BASE_URL = 'http://api.openweathermap.org/data/2.5'
+const API_KEY = 'df4e03736c39bd4ff908e176104afde8'
 
 export default class Forecast extends React.Component {
   constructor(props) {
@@ -58,33 +58,34 @@ export default class Forecast extends React.Component {
     if (this.props.location.search !== prevProps.location.search) {
       NProgress.start()
 
-      this.fetchForecast(this.props.location.search)
+      let search = qs.parse(this.props.location.search.substring(1))
+      if (search.q)
+        this.setState({ search: search.q }, this.fetchForecast(search.q))
     }
   }
 
   getQuery = props => {
     let search = qs.parse(props.location.search.substring(1))
 
-    if (search.q) {
+    if (search.q)
       this.setState({ search: search.q })
-    }
   }
 
-  fetchForecast = cityName => {
+  fetchForecast = (cityName) => {
     axios
-      .get(baseUrl + '/forecast/daily', {
+      .get(BASE_URL + '/forecast/daily', {
         params: {
           q: cityName,
           type: 'like',
           units: 'metric',
           cnt: 7,
-          APPID: apiKey
+          APPID: API_KEY
         }
       })
       .then(res => {
         NProgress.done()
 
-        // add weather icon to each day
+        // Add weather icon to each day
         let list = res.data.list.map(d => {
           let code = d.weather[0].id
           let icon = weatherIcons[code].icon
@@ -109,7 +110,7 @@ export default class Forecast extends React.Component {
 
         this.setState({
           error: true,
-          loading: false
+          loading: true
         })
       })
   }
@@ -136,9 +137,11 @@ export default class Forecast extends React.Component {
                 <span>
                   Forecast for {this.state.cityName}, {this.state.cityCountry}
                   &nbsp;
-                  <a onClick={this.handleMoreInfo}>
-                    <em className="is-small">not what you wanted?</em>
-                  </a>
+                  <em className="is-small">
+                    <button className="link-button" onClick={this.handleMoreInfo}>
+                      not what you wanted?
+                    </button>
+                  </em>
                 </span>
               ) : (
                 <span>Looking up {this.state.search}...</span>

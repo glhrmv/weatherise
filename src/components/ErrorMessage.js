@@ -4,13 +4,14 @@ const ErrorMessage = () => (
   <article className="message is-dark">
     <div className="message-body">
       Something went wrong with the request. Please try again later. &nbsp;
-      <a
+      <button
+        className="link-button"
         onClick={() => {
           window.location.reload()
         }}
       >
         Try again now?
-      </a>
+      </button>
     </div>
   </article>
 )

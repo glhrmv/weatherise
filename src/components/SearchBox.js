@@ -30,7 +30,7 @@ class SearchBox extends React.Component {
         'Dublin'
       ],
       typeSpeed: 60,
-      backSpeed: 60,
+      backSpeed: 40,
       startDelay: 200,
       backDelay: 1500,
       showCursor: false,
@@ -73,7 +73,8 @@ class SearchBox extends React.Component {
               ref={s => {
                 this.cityName = s
               }}
-            />?
+            />
+            ?
           </p>
         </div>
         <form onSubmit={this.handleSubmit}>
