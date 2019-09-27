@@ -12,7 +12,7 @@ import weatherIcons from '../icons.json'
 import WeatherCard from './WeatherCard'
 import ErrorMessage from './ErrorMessage'
 
-const BASE_URL = 'http://api.openweathermap.org/data/2.5'
+const BASE_URL = 'https://api.openweathermap.org/data/2.5'
 const API_KEY = 'df4e03736c39bd4ff908e176104afde8'
 
 export default class Forecast extends React.Component {
