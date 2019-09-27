@@ -26,7 +26,7 @@ export default class App extends React.Component {
               <div className="column is-3 is-offset-1">
                 <LeftMenu />
               </div>
-              <div className="column is-7">
+              <div className="column is-7 info">
                 <Switch>
                   <Route exact path="/" component={Home} />
                   <Route path="/forecast" component={Forecast} />

@@ -136,8 +136,7 @@ export default class Forecast extends React.Component {
               {this.state.cityName ? (
                 <span>
                   Forecast for {this.state.cityName}, {this.state.cityCountry}
-                  &nbsp;
-                  <em className="is-small">
+                  <em className="is-small unwanted">
                     <button className="link-button" onClick={this.handleMoreInfo}>
                       not what you wanted?
                     </button>
@@ -166,7 +165,9 @@ export default class Forecast extends React.Component {
                   get you an unexpected result. You can try typing the name of
                   the respective country after the city's name, like so:
                 </p>
-                <pre>San Francisco, United States or San Francisco, US</pre>
+                <pre>San Francisco, United States </pre>
+                <p>or</p>
+                <pre>San Francisco, US</pre>
               </div>
             </CSSTransitionGroup>
           )}

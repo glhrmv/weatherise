@@ -2,6 +2,7 @@ import React from 'react'
 
 import { withRouter } from 'react-router-dom'
 import { init } from 'ityped'
+import animateScrollTo from 'animated-scroll-to'
 
 class SearchBox extends React.Component {
   constructor(props) {
@@ -59,6 +60,9 @@ class SearchBox extends React.Component {
       this.props.history.push('/forecast?q=' + this.state.cityName.trim())
       this.setState({ cityName: '' })
     }
+
+    // On mobile, scroll down to the results
+    animateScrollTo(document.querySelector('.info'))
   }
 
   render() {
@@ -66,7 +70,7 @@ class SearchBox extends React.Component {
       <div className="box">
         <div className="content has-text-centered">
           <p className="title is-4">what's the weather in</p>
-          <p className="subtitle is-2">
+          <p className="subtitle is-2 suggestion-text">
             <span
               onClick={this.handleChange}
               className="suggestion-city"

@@ -73,6 +73,10 @@ em.is-small {
   font-size: 14px;
 }
 
+.unwanted {
+  margin-left: 10px;
+}
+
 /**
  * NProgress
  */
@@ -106,4 +110,14 @@ em.is-small {
 .fade-leave.fade-leave-active {
   opacity: 0;
   transition: opacity 300ms ease-in;
+}
+
+/**
+ * Media queries
+ */
+
+@media only screen and (max-width: 768px) {
+  .suggestion-text {
+    font-size: 2rem !important;
+  }
 }
