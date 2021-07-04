@@ -18,7 +18,7 @@ const InfoBox = () => (
         </span>
         by{' '}
         <strong>
-          <Link to="http://github.com/glhrmv" target="_blank">
+        <Link to={{ pathname: "http://github.com/glhrmv" }} target="_blank" >
             glhrmv
           </Link>
         </strong>
