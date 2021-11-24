@@ -1,8 +1,8 @@
 # weatherise
 
-A simple React weather forecast app. [Check it out here](http://weatherise.surge.sh/). 
+A simple React weather forecast app.
 
-## Contributing
+## Usage
 
 You must have [Node.js](https://nodejs.org/) installed.
 
