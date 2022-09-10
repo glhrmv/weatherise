@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "prettier": "^1.19.1",
-    "react-scripts": "^3.4.4"
+    "react-scripts": "^5.0.1"
   },
   "scripts": {
     "pretty": "prettier --single-quote --no-semi --write 'src/**/*.js'",
